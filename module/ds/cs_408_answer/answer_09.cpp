@@ -25,7 +25,7 @@ struct ListNode {
 class Solution {
 public:
     int findKthToLast(ListNode *head, int k) {
-        if (!head || !head->next || k <= 0)
+        if (!head || k <= 0)
             return 0;
         // 定义p、q指针，初始时分别指向首结点
         ListNode *p = head->next, *q = head->next;

@@ -43,7 +43,44 @@ int findKthToLast(ListNode *head, int k) {
 ### 2010
 
 ```text
+设将n(n>1)个整数存放到一维数组R中。试设计一个在时间和空间两方面都尽可能高效的算法。
+将R中保存的序列循环左移p(0<p<n)个位置，即将R中的数组由（X0,X1, … Xn-1)变换为（Xp,Xp-1, … Xn-1,X0,X1, … Xp-1）。要求：
+1）给出算法的基本设计思想。
+2）根据设计思想，采用C、C++或JAVA语言描述算法，关键之处给出注释。
+3）说明你所涉及算法的时间复杂度和空间复杂度。
 ```
+
+- 算法思想：
+  根据p的位置将数组看做ab两部分，
+  第一次逆置a，数组变为(-a)b，
+  第二次逆置b，数组变为(-a)(-b)，
+  第三次逆置整个数组，数组变为ba。
+- 实现 [2010_数组循环左移](answer_10.cpp)
+
+```cpp
+void rol(vector<int> &nums, int p) {
+    int n = nums.size();
+    // => a^(-1) b
+    reverse(nums, 0, p - 1);
+    // => a^(-1) b^(-1)
+    reverse(nums, p, n - 1);
+    // => ba
+    reverse(nums, 0, n - 1);
+}
+
+void reverse(vector<int> &nums, int left, int right) {
+    int tmp;
+    while (left < right) {
+        tmp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = tmp;
+        left++;
+        right--;
+    }
+}
+```
+
+- 时间复杂度: O(n) 空间复杂度: O(1)
 
 ### 2011
 

@@ -1,0 +1,103 @@
+# 吸烟者问题 (Smokers Problem)
+
+## 问题描述
+
+有一个供应者和三个抽烟者，供应者拥有无限的烟草、纸、胶水三种材料，抽烟者1号只有烟草，抽烟者2号只有纸，抽烟者3号只有胶水。  
+每次供应者提供其中两种材料，其中一个抽烟者拿着这两种材料与自己的材料结合进行抽烟，抽完再发送信号给供应者，供应者重新供应材料。  
+整个过程按照三个抽烟者轮流抽烟的顺序循环往复。
+
+## 分析步骤
+
+- 找出各类资源和进程：  
+  - 进程：一个供应者和三个抽烟者
+  - 资源：材料组合
+- 写出各类进程的同步和互斥关系：
+  - 同步关系：  
+    先放材料组合一，后有抽烟者1号拿材料;  
+    先放材料组合二，后有抽烟者2号拿材料;  
+    先放材料组合三，后有抽烟者3号拿材料；  
+    某一个抽烟者先发出信号，后有供应者重新供应材料。
+
+## 解决方案
+
+- 组合
+
+| 组合   | 桌上材料    | 能抽烟的吸烟者 | 信号量   |
+|--------|-------------|----------------|----------|
+| Offer1 | 烟草 + 纸   | 有胶水的吸烟者 | `offer1` |
+| Offer2 | 烟草 + 胶水 | 有纸的吸烟者   | `offer2` |
+| Offer3 | 纸 + 胶水   | 有烟草的吸烟者 | `offer3` |
+
+✅ 每个 offer 信号量直接通知那个“能用这两种材料+自己材料卷烟”的吸烟者
+
+- 伪代码
+
+```cpp
+semaphore offer1 = 0;           // 同步信号量，表示组合offer1: 烟草 + 纸，通知 Smoker1
+semaphore offer2 = 0;           // 同步信号量，表示组合offer2: 烟草 + 胶水，通知 Smoker2
+semaphore offer3 = 0;           // 同步信号量，表示组合offer3: 纸 + 胶水，通知 Smoker3
+semaphore finish = 0;           // 同步信号量，表示某抽烟者 smoke 完成，通知供应者供应
+int i = 0;                      // 轮转变量
+
+cobegin
+Provider() {
+    while(1) {
+        if(i == 0) {
+            put offer1;
+            V(offer1);          // 通知 Smoker1
+        } else if(i == 1) {
+            put offer2;
+            V(offer2);          // 通知 Smoker2
+        } else if(i == 2) {
+            put offer3;
+            V(offer3);          // 通知 Smoker3
+        }
+        i = (i + 1) % 3;        // 轮转
+        P(finish);              // 等待抽烟者完成
+    }
+}
+
+Smoker1() {
+    while(1) {
+        P(offer1);              // 等待 offer1
+        get offer1, combine, smoke;
+        V(finish);              // 通知供应者供应
+    }
+}
+
+Smoker2() {
+    while(1) {
+        P(offer2);              // 等待 offer2
+        get offer2, combine, smoke;
+        V(finish);              // 通知供应者供应
+    }
+}
+
+Smoker3() {
+    while(1) {
+        P(offer3);              // 等待 offer3
+        get offer3, combine, smoke;
+        V(finish);              // 通知供应者供应
+    }
+}
+coend
+```
+
+- 总结
+
+| 角色         | 行为                                              |
+|--------------|---------------------------------------------------|
+| **Provider** | 轮流投放组合 → `V(offerX)`通知 → `P(finish)` 等待 |
+| **SmokerX**  | `P(offerX)` 等待 → 抽烟 → `V(finish)` 通知        |
+
+- 执行步骤
+
+| 步骤 | 行动 |
+| ------ | ------ |
+| 1 | `i = 0`，Provider 执行 `i==0` 分支：放“组合一”（如烟草+纸），`V(offer1)` |
+| 2 | `offer1 = 1`，Smoker1 的 `P(offer1)` 成功，开始执行 |
+| 3 | Smoker1 拿走材料，组合，抽烟，执行 `V(finish)` → `finish = 1` |
+| 4 | Provider 的 `P(finish)` 成功（`finish` 变回 0），继续下一轮 |
+| 5 | `i = 1`，Provider 放“组合二”，`V(offer2)` |
+| 6 | Smoker2 的 `P(offer2)` 成功，抽烟，`V(finish)` |
+| 7 | Provider 继续...循环往复 |

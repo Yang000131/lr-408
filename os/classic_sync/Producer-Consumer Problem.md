@@ -1,0 +1,99 @@
+# 生产者-消费者问题 (Producer-Consumer Problem)
+
+> **另称有界缓冲区问题(Bounded Buffer Problem)**
+
+## 1、问题描述
+
+描述两个或多个线程（或进程）如何安全地共享一个固定大小的缓冲区：
+一个或多个 “生产者” 向缓冲区中添加数据，一个或多个 “消费者” 从缓冲区中取出数据
+
+- 伪代码
+
+```cpp
+cobegin
+producer() {
+    while(1){
+        produce an item in nextp;       // 生成产品
+        add nextp to buffer;            // 将产品添加到缓冲区
+    }
+}
+
+consumer(){
+    while(1) {
+        remover an item from buffer;    // 从缓冲区取出产品
+        consume the item;               // 消费产品
+    }
+}
+coend
+```
+
+## 2、分析步骤
+
+- 找出各类资源和进程：
+  - 进程：消费者、生产者
+  - 资源：大小为 n 的缓冲区
+
+- 写出各类进程的同步和互斥关系：
+  - 同步：生产者等待缓冲区不满时才能生产，消费者等待缓冲区有产品时才能消费
+  - 互斥：对缓冲区的访问
+
+- **Step 1** 考虑互斥关系
+
+```cpp
+semaphore mutex = 1;
+
+cobegin
+producer() {
+    while(1){
+        produce an item in nextp;
+        P(mutex);
+        add nextp to buffer;
+        V(mutex);
+    }
+}
+
+consumer(){
+    while(1) {
+        P(mutex);
+        remover an item from buffer;
+        V(metex);
+        consume the item;
+    }
+}
+coend
+```
+
+- **Step 2** 考虑同步关系
+  - **两对同步关系**
+    - 对于 `producer`，受 empty 信号量控制：仅当存在空闲缓冲区槽位时，才可进行生产；
+    - 对于 `consumer`，受 full 信号量 控制：仅当缓冲区中存在已生产的产品时，才可进行消费。
+
+```cpp
+semaphore mutex = 1;            // 互斥信号量，确保对缓冲区操作的互斥
+semaphore empty = n;            // 同步信号量，表示空闲缓冲区数量，初始值为n
+sempphore full = 0;             // 同步信号量，表示缓冲区产品数量，初始值为0
+
+cobegin
+producer() {
+    while(1){
+        produce an item in nextp;
+        P(empty);               // 空闲缓冲区数量减1
+        P(mutex);               // 互斥量减1，进入临界区
+        add nextp to buffer;
+        V(mutex);               // 互斥量加1，退出临界区
+        V(full);                // 缓冲区产品数量加1
+    }
+}
+
+consumer(){
+    while(1) {
+        P(full);                // 缓冲区产品数量减1
+        P(mutex);               // 互斥量减1，进入临界区
+        remover an item from buffer;
+        V(metex);               // 互斥量加1，退出临界区
+        V(empty);               // 空闲缓冲区数量加1
+        consume the item;
+    }
+}
+coend
+```

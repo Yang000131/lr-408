@@ -9,7 +9,8 @@ export default defineConfig({
     themeConfig: {
         logo: {src: '/art/lr-408.svg', width: 24, height: 24},
         search: {
-            provider: 'local'
+            provider: 'local',
+            options: searchOptions()
         },
         nav: [
             {text: '主页', link: '/'},
@@ -96,18 +97,27 @@ export default defineConfig({
 function sidebarDS(): DefaultTheme.SidebarItem[] {
     return [
         {
-            text: 'Index',
+            text: '数据结构',
             items: [
                 {
-                    text: 'Base',
+                    text: '基础知识',
                     collapsed: false,
                     items: [
                         {
                             text: '线性表',
-                            items: []
+                            collapsed: true,
+                            items: [
+                                {text: '顺序表', link: 'base/linear/Seq List'},
+                                {text: '链表', link: 'base/linear/Linked List'},
+                                {text: '栈', link: 'base/linear/Stack'},
+                                {text: '队列', link: 'base/linear/Queue'},
+                                {text: '优先队列', link: 'base/linear/Priority Queue'},
+                                {text: '字符串', link: 'base/linear/String'},
+                            ]
                         },
                         {
                             text: '树',
+                            collapsed: true,
                             items: []
                         },
                         {
@@ -115,6 +125,15 @@ function sidebarDS(): DefaultTheme.SidebarItem[] {
                             items: [
                                 {text: '图的定义', link: 'base/graph/GraphDefine'},
                                 {text: '图的遍历', link: 'base/graph/GraphTraversal'},
+                            ]
+                        },
+                        {
+                            text: '查找', link: 'base/search/Search',
+                            collapsed: true,
+                            items: [
+                                {text: '线性查找', link: 'base/search/Linear Search'},
+                                {text: '二分查找', link: 'base/search/Binary Search'},
+                                {text: '并查集', link: 'base/search/Union Find Set'}
                             ]
                         },
                         {
@@ -134,6 +153,12 @@ function sidebarDS(): DefaultTheme.SidebarItem[] {
 
                             ]
                         }
+                    ]
+                },
+                {
+                    text: 'C++ STL',
+                    items: [
+                        {text: '无序哈希集合', link: 'stl/Unordered Set'},
                     ]
                 },
                 {
@@ -184,4 +209,26 @@ function sidebarOS(): DefaultTheme.SidebarItem[] {
             ]
         }
     ]
+}
+
+function searchOptions(): DefaultTheme.LocalSearchOptions {
+    return {
+        translations: {
+            button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+            },
+            modal: {
+                noResultsText: '无法找到相关结果',
+                resetButtonTitle: '清除查询条件',
+                footer: {
+                    selectText: '选择',
+                    navigateText: '切换',
+                    closeText: '关闭'
+                },
+                displayDetails: '显示详细信息',
+                backButtonTitle: '返回上一级'
+            }
+        }
+    }
 }

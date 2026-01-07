@@ -123,8 +123,8 @@ function sidebarDS(): DefaultTheme.SidebarItem[] {
                         {
                             text: '图',
                             items: [
-                                {text: '图的定义', link: 'base/graph/GraphDefine'},
-                                {text: '图的遍历', link: 'base/graph/GraphTraversal'},
+                                {text: '图的定义', link: 'base/graph/Graph Define'},
+                                {text: '图的遍历', link: 'base/graph/Graph Traversal'},
                             ]
                         },
                         {

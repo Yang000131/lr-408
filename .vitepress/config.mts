@@ -4,7 +4,7 @@ import {
   groupIconMdPlugin,
   groupIconVitePlugin,
 } from "vitepress-plugin-group-icons";
-import { nav, sidebarDS, sidebarOS, searchOptions } from "./configs";
+import { nav, sidebarDS, sidebarOS, searchOptions } from "./theme/config";
 
 export default defineConfig({
   title: "LR-408",

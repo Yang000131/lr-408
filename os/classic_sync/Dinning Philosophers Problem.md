@@ -1,7 +1,3 @@
----
-outline: deep
----
-
 # 哲学家进餐问题 (The Dinning Philosophers Problem)
 
 ## 问题描述

@@ -1,7 +1,3 @@
----
-outline: deep
----
-
 # 读者-写者问题 (Reader-Writer Problem)
 
 ## 问题描述

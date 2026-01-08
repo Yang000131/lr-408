@@ -79,19 +79,19 @@ export const sidebarDS: DefaultTheme.SidebarItem[] = [
             link: "ds_408_answer/answer_11.md",
           },
           {
-            text: "2012年（单生产者-消费者问题）",
+            text: "2012年（链表中相同后缀的起始位置）",
             link: "ds_408_answer/answer_12.md",
           },
           {
-            text: "2013年（多生产者-消费者问题）",
+            text: "2013年（寻找数组主元素）",
             link: "ds_408_answer/answer_13.md",
           },
           {
-            text: "2015年（多生产者-消费者问题）",
+            text: "2015年（删除链表中的绝对值重复的结点）",
             link: "ds_408_answer/answer_15.md",
           },
           {
-            text: "2018年（多生产者-消费者问题）",
+            text: "2018年（缺失的最小正整数）",
             link: "ds_408_answer/answer_18.md",
           },
         ],

@@ -1,10 +1,11 @@
-import { DefaultTheme, defineConfig } from "vitepress";
+import { defineConfig } from "vitepress";
 import { MermaidMarkdown, MermaidPlugin } from "vitepress-plugin-mermaid";
 import {
   groupIconMdPlugin,
   groupIconVitePlugin,
 } from "vitepress-plugin-group-icons";
 import { nav, sidebarDS, sidebarOS, searchOptions } from "./theme/config";
+import vitepressProtectPlugin from "vitepress-protect-plugin";
 
 export default defineConfig({
   title: "LR-408",
@@ -20,8 +21,7 @@ export default defineConfig({
     socialLinks: [
       { icon: "github", link: "https://github.com/Yang000131" },
       { icon: "gitee", link: "https://gitee.com/yang_311414/lr-408" },
-      { icon: "wechat", link: "" },
-      { icon: "qq", link: "https://jq.qq.com/?_wv=1027&k=5n0k1fZJ" },
+      { icon: "bilibili", link: "https://space.bilibili.com/516750485" },
     ],
     sidebar: {
       "/ds/": { base: "/ds/", items: sidebarDS },
@@ -70,7 +70,15 @@ export default defineConfig({
     en: { label: "English", lang: "en-US", dir: "ltr" },
   },
   vite: {
-    plugins: [MermaidPlugin(), groupIconVitePlugin()],
+    plugins: [
+      MermaidPlugin(),
+      groupIconVitePlugin(),
+      vitepressProtectPlugin({
+        disableF12: true,
+        disableCopy: true,
+        disableSelect: true,
+      }),
+    ],
     optimizeDeps: {
       include: ["mermaid"],
     },
@@ -88,6 +96,7 @@ export default defineConfig({
     config: (md) => {
       md.use(MermaidMarkdown);
       md.use(groupIconMdPlugin);
+  
     },
   },
 });

@@ -53,7 +53,7 @@ export const sidebarOS: DefaultTheme.SidebarItem[] = [
         items: [
           {
             text: "动态优先数调度算法",
-            link: "/os/Dynamic Priority Scheduling Algorithm",
+            link: "Dynamic Priority Scheduling Algorithm",
           },
         ],
       },

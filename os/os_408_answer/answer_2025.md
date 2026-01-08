@@ -1,4 +1,4 @@
-# 2025 408真题解答
+# 2025 408 真题解答
 
 ## 问题描述
 
@@ -18,7 +18,7 @@ cobegin
 甲(){
     while(1) {
         wait(pit);        // 可挖的树坑数量-1
-        wait(mutex);      
+        wait(mutex);
         挖树坑;
         singnal(mutex);
         singnal(full);    // 可用的树坑数量+1，通知乙可以放树苗和填土
@@ -29,7 +29,7 @@ cobegin
         wait(full);       // 可用的树坑数量-1
         wait(mutex);
         放树苗和填土;
-        singnal(mutex);   
+        singnal(mutex);
         singnal(pit);     // 可挖的树坑数量+1，通知甲可以挖树坑
         singnal(water);   // 通知丙可以浇水
     }

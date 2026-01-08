@@ -41,19 +41,19 @@ Writer() {
 
 Reader(){
     while(1) {
-        P(mutex);           
+        P(mutex);
         if(count == 0)      // 第一个读者，阻止写者写入
             P(rw);
         count ++;
-        V(mutex);           
+        V(mutex);
 
         read data;
 
-        P(mutex);           
+        P(mutex);
         count --;
         if(count == 0)      // 最后一个读者，允许写者写入
             V(rw);
-        V(mutex);           
+        V(mutex);
     }
 }
 coend
@@ -90,7 +90,7 @@ Reader(){
             P(rw);
         count ++;
         V(mutex);
-        V(queue);           
+        V(queue);
 
         read data;
 

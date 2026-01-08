@@ -12,7 +12,7 @@ export default defineConfig({
   lang: "zh-CN",
   description: "LR-408",
   themeConfig: {
-    logo: { src: "/art/lr-408-logo.svg", width: 24, height: 24 },
+    logo: { src: './lr-408-logo.svg', width: 24, height: 24 },
     search: {
       provider: "local",
       options: searchOptions,
@@ -24,8 +24,8 @@ export default defineConfig({
       { icon: "bilibili", link: "https://space.bilibili.com/516750485" },
     ],
     sidebar: {
-      "/doc/ds/": { base: "/doc/ds/", items: sidebarDS },
-      "/doc/os/": { base: "/doc/os/", items: sidebarOS },
+      "/ds/": { base: "/ds/", items: sidebarDS },
+      "/os/": { base: "/os/", items: sidebarOS },
     },
     outline: {
       level: [2, 4],

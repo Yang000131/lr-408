@@ -12,7 +12,7 @@ export default defineConfig({
   lang: "zh-CN",
   description: "LR-408",
   themeConfig: {
-    logo: { src: "/art/lr-408.svg", width: 24, height: 24 },
+    logo: { src: "/art/lr-408-logo.svg", width: 24, height: 24 },
     search: {
       provider: "local",
       options: searchOptions,
@@ -24,8 +24,8 @@ export default defineConfig({
       { icon: "bilibili", link: "https://space.bilibili.com/516750485" },
     ],
     sidebar: {
-      "/ds/": { base: "/ds/", items: sidebarDS },
-      "/os/": { base: "/os/", items: sidebarOS },
+      "/doc/ds/": { base: "/doc/ds/", items: sidebarDS },
+      "/doc/os/": { base: "/doc/os/", items: sidebarOS },
     },
     outline: {
       level: [2, 4],
@@ -65,10 +65,6 @@ export default defineConfig({
     skipToContentLabel: "跳转到内容",
   },
   cleanUrls: true,
-  locales: {
-    root: { label: "简体中文", lang: "zh-Hans", dir: "ltr" },
-    en: { label: "English", lang: "en-US", dir: "ltr" },
-  },
   vite: {
     plugins: [
       MermaidPlugin(),

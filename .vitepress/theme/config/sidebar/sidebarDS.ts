@@ -24,7 +24,7 @@ export const sidebarDS: DefaultTheme.SidebarItem[] = [
           {
             text: "树",
             collapsed: true,
-            items: [],
+            items: [{ text: "二叉树", link: "base/tree/Tree Node" }],
           },
           {
             text: "图",
@@ -59,6 +59,40 @@ export const sidebarDS: DefaultTheme.SidebarItem[] = [
               { text: "计数排序", link: "base/sort/Count Sort" },
               { text: "桶排序", link: "base/sort/Bucket Sort" },
             ],
+          },
+        ],
+      },
+      {
+        text: "数据结构真题答案",
+        collapsed: true,
+        items: [
+          {
+            text: "2009年（链表倒数第 k 个结点）",
+            link: "ds_408_answer/answer_09.md",
+          },
+          {
+            text: "2010年 (翻转数组)",
+            link: "ds_408_answer/answer_10.md",
+          },
+          {
+            text: "2011年 (两个升序数组的中位数)",
+            link: "ds_408_answer/answer_11.md",
+          },
+          {
+            text: "2012年（单生产者-消费者问题）",
+            link: "ds_408_answer/answer_12.md",
+          },
+          {
+            text: "2013年（多生产者-消费者问题）",
+            link: "ds_408_answer/answer_13.md",
+          },
+          {
+            text: "2015年（多生产者-消费者问题）",
+            link: "ds_408_answer/answer_15.md",
+          },
+          {
+            text: "2018年（多生产者-消费者问题）",
+            link: "ds_408_answer/answer_18.md",
           },
         ],
       },

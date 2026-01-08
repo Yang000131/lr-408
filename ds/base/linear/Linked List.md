@@ -1,12 +1,10 @@
-//
-// Created by 一可爱小白兔 on 2025-08-29 10:19.
-//
+# 链表
 
-#include <iostream>
-#include <vector>
+## 单链表
 
-using namespace std;
+### 定义单链表
 
+```cpp
 /**
  * Define a singly-linked list node.
  */
@@ -16,7 +14,13 @@ struct ListNode {
     ListNode() : val(0), next(nullptr) {}       // 构造函数(val默认为0)-->作为头结点
     ListNode(int x) : val(x), next(nullptr) {}  // 构造函数-->作为数据结点
 };
+```
 
+### 基本操作
+
+::: code-group
+
+```cpp [printList.cpp]
 /**
  * 打印链表
  * @param head 头结点
@@ -29,7 +33,9 @@ void printList(ListNode *head) {
     }
     cout << endl;
 }
+```
 
+```cpp [getListLength.cpp]
 /**
  * 获取链表长度
  * @param head 头结点
@@ -44,7 +50,9 @@ int getListLength(ListNode *head) {
     }
     return len;
 }
+```
 
+```cpp [getKthNode.cpp]
 /**
  * 获取第k个结点
  * @param head 头结点
@@ -62,80 +70,9 @@ ListNode *getKthNode(ListNode *head, int k) {
     }
     return cur;
 }
+```
 
-/**
- * 创建链表——尾插法
- */
-ListNode *createList_tailInsert(vector<int> &nums) {
-    ListNode *head = new ListNode();                // 创建头结点
-    ListNode *tail = head;                          // 创建尾指针并指向头结点
-    for (auto num: nums) {
-        ListNode *dataNode = new ListNode(num);  // 创建数据结点
-        tail->next = dataNode;
-        tail = dataNode;                            // 更新尾指针
-    }
-    return head;
-}
-
-/**
- * 创建链表——尾插法(不带头结点)--使用哑结点
- */
-ListNode *createList_tailInsert_noHead(vector<int> &nums) {
-    ListNode dummyNode(-1);                      // 创建哑结点
-    ListNode *tail = &dummyNode;                    // 创建尾指针并指向哑结点
-    for (auto num: nums) {
-        ListNode *dataNode = new ListNode(num);  // 创建数据结点
-        tail->next = dataNode;
-        tail = dataNode;                            // 更新尾指针
-    }
-    return dummyNode.next;
-}
-
-/**
- * 头插法
- */
-ListNode *createList_headInsert(vector<int> &nums) {
-    ListNode *head = new ListNode();                // 创建头结点
-    for (auto num: nums) {
-        ListNode *dataNode = new ListNode(num);  // 创建数据结点
-        dataNode->next = head->next;
-        head->next = dataNode;
-    }
-    return head;
-}
-
-// 逆置链表(双指针-迭代)
-/**
- * (不带头结点)
- */
-ListNode *reverseList(ListNode *head) {
-    ListNode *prev = nullptr, *curr = head, *next = nullptr;
-    while (curr) {
-        next = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = next;
-    }
-    return prev;
-}
-
-/**
- * （带头结点）
- */
-ListNode *reverseListWithHead(ListNode *head) {
-    if (!head || !head->next)
-        return head;                            // 链表为空或只有一个头结点，直接返回
-    ListNode *prev = head, *curr = head->next, *next = nullptr;
-    while (curr) {
-        next = curr->next;                      // 保存当前节点的下一个节点
-        curr->next = prev;                      // 将当前节点指向前一个节点
-        prev = curr;                            // 前一个节点向后移动
-        curr = next;                            // 当前节点向后移动
-    }
-    head->next = prev;                          // 头结点的next指针指向逆序后的第一个数据节点
-    return head;
-}
-
+```cpp [insertNode.cpp]
 /**
  * 插入结点
  * @param head 头结点
@@ -149,7 +86,9 @@ void insertNode(ListNode *head, int k, int val) {
     q->next = p->next;
     p->next = q;
 }
+```
 
+```cpp [deleteNode.cpp]
 /**
  * 删除结点
  * @param head 头结点
@@ -161,7 +100,101 @@ void deleteNode(ListNode *head, int k) {
     p->next = q->next;
     delete q;
 }
+```
 
+:::
+
+### 创建单链表
+
+::: code-group
+
+```cpp [createList_tailInsert.cpp]
+/**
+ * 创建链表——尾插法
+ */
+ListNode *createList_tailInsert(vector<int> &nums) {
+    ListNode *head = new ListNode();                // 创建头结点
+    ListNode *tail = head;                          // 创建尾指针并指向头结点
+    for (auto num: nums) {
+        ListNode *dataNode = new ListNode(num);  // 创建数据结点
+        tail->next = dataNode;
+        tail = dataNode;                            // 更新尾指针
+    }
+    return head;
+}
+```
+
+```cpp [createList_tailInsert_noHead.cpp]
+/**
+ * 创建链表——尾插法(不带头结点)--使用哑结点
+ */
+ListNode *createList_tailInsert_noHead(vector<int> &nums) {
+    ListNode dummyNode(-1);                      // 创建哑结点
+    ListNode *tail = &dummyNode;                    // 创建尾指针并指向哑结点
+    for (auto num: nums) {
+        ListNode *dataNode = new ListNode(num);  // 创建数据结点
+        tail->next = dataNode;
+        tail = dataNode;                            // 更新尾指针
+    }
+    return dummyNode.next;
+}
+```
+
+```cpp [createList_headInsert.cpp]
+/**
+ * 头插法
+ */
+ListNode *createList_headInsert(vector<int> &nums) {
+    ListNode *head = new ListNode();                // 创建头结点
+    for (auto num: nums) {
+        ListNode *dataNode = new ListNode(num);  // 创建数据结点
+        dataNode->next = head->next;
+        head->next = dataNode;
+    }
+    return head;
+}
+```
+
+:::
+
+### 逆置链表(双指针-迭代)
+
+::: code-group
+
+```cpp [reverseList.cpp]
+ListNode *reverseList(ListNode *head) {
+    ListNode *prev = nullptr, *curr = head, *next = nullptr;
+    while (curr) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+}
+```
+
+```cpp [reverseListWithHead.cpp]
+ListNode *reverseListWithHead(ListNode *head) {
+    if (!head || !head->next)
+        return head;                            // 链表为空或只有一个头结点，直接返回
+    ListNode *prev = head, *curr = head->next, *next = nullptr;
+    while (curr) {
+        next = curr->next;                      // 保存当前节点的下一个节点
+        curr->next = prev;                      // 将当前节点指向前一个节点
+        prev = curr;                            // 前一个节点向后移动
+        curr = next;                            // 当前节点向后移动
+    }
+    head->next = prev;                          // 头结点的next指针指向逆序后的第一个数据节点
+    return head;
+}
+```
+
+:::
+
+### 合并两个有序链表
+
+```cpp
 /**
  * 合并两个有序链表（不带头结点）
  * @param list1 list1 链表
@@ -190,3 +223,34 @@ ListNode *mergeTwoLists(ListNode *list1, ListNode *list2) {
     // 返回哑结点的next
     return dummyHead.next;
 }
+```
+
+## 静态链表
+
+### 静态链表结构
+
+```cpp
+/**
+ * Define the static list node.
+ */
+struct staticListNode {
+    int data;               // 数据域，存储节点的实际数据
+    int nextIndex;          // 游标，指示下一个节点在数组中的索引，-1表示无后继节点
+};
+```
+
+## 双链表
+
+### 双链表结构
+
+```cpp
+/**
+ * Define a double-linked-list
+ */
+struct DListNode {
+    int val;                                                        // 结点值
+    DListNode *prev, *next;                                         // 指向前驱结点、后继结点的指针
+    DListNode() : val(0), prev(nullptr), next(nullptr) {}           // 构造函数(val默认为0)-->作为头结点
+    DListNode(int x) : val(x), prev(nullptr), next(nullptr) {}      // 构造函数-->作为数据结点
+};
+```

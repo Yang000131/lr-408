@@ -14,6 +14,7 @@ export const sidebarDS: DefaultTheme.SidebarItem[] = [
             items: [
               { text: "顺序表", link: "base/linear/Seq List" },
               { text: "链表", link: "base/linear/Linked List" },
+              { text: "稀疏矩阵", link: "base/linear/Sparse Matrix" },
               { text: "栈", link: "base/linear/Stack" },
               { text: "队列", link: "base/linear/Queue" },
               { text: "优先队列", link: "base/linear/Priority Queue" },

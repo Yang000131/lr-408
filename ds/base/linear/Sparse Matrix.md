@@ -1,14 +1,10 @@
-//
-// Created by 一可爱小白兔 on 2025-08-29 10:24.
-//
+# 稀疏矩阵
 
-/**
- * @brief 稀疏矩阵的定义
- */
+## 稀疏矩阵结构体
 
-#include <vector>
-using namespace std;
+::: code-group
 
+```cpp [三元组法]
 /**
  * (三元组法)
  */
@@ -25,7 +21,9 @@ struct sparseMatrix {
     int nonZeroNum;            // 非零元素的数量
     vector<Triplet> elements;  // 存储非零元素的数组
 };
+```
 
+```cpp [十字链表法]
 /**
  * (十字链表法)
  */
@@ -47,3 +45,6 @@ struct SparseMatrixCrossList {
     CrossLinkNode* rowHeaders;  // 存储每一行首结点的指针数组
     CrossLinkNode* colHeaders;  // 存储每一列首结点的指针数组
 };
+```
+
+:::

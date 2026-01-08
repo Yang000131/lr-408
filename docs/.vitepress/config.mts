@@ -12,7 +12,7 @@ export default defineConfig({
   lang: "zh-CN",
   description: "LR-408",
   themeConfig: {
-    logo: { src: './lr-408-logo.svg', width: 24, height: 24 },
+    logo: { src: "./lr-408-logo.svg", width: 24, height: 24 },
     search: {
       provider: "local",
       options: searchOptions,

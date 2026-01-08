@@ -81,6 +81,9 @@ export default defineConfig({
     ssr: {
       noExternal: ["mermaid"],
     },
+    build: {
+      chunkSizeWarningLimit: 1000,
+    },
   },
   markdown: {
     math: true,

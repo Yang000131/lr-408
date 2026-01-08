@@ -32,7 +32,7 @@ export default defineConfig({
       label: "页面导航",
     },
     editLink: {
-      pattern: "https://gitee.com/yang_311414/lr-408/blob/doc/:path",
+      pattern: "https://gitee.com/yang_311414/lr-408/blob/doc/docs/:path",
       text: "在Gitee编辑本页",
     },
     docFooter: {

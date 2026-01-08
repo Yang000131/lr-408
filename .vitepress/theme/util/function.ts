@@ -20,5 +20,12 @@ export function countWord(data: string) {
 export const toISODate = (dateStr: string | number | undefined): string => {
   if (!dateStr) return "";
   const d = new Date(dateStr);
-  return isNaN(d.getTime()) ? "" : d.toISOString().substring(0, 10);
+  if (isNaN(d.getTime())) return "";
+  return (
+    d.getFullYear() +
+    "-" +
+    String(d.getMonth() + 1).padStart(2, "0") +
+    "-" +
+    String(d.getDate()).padStart(2, "0")
+  );
 };

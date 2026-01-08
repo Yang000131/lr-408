@@ -1,13 +1,8 @@
-//
-// Created by 一可爱小白兔 on 2025-08-29 10:25.
-//
+# 树
 
-#include <iostream>
-#include <queue>
-#include <vector>
+## 二叉树结点结构体
 
-using namespace std;
-
+```cpp
 /**
  * Define a binary tree node.
  */
@@ -19,11 +14,15 @@ struct TreeNode {
 
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
+```
 
+## 二叉树遍历
+
+### 前序遍历： 根 - 左 - 右
+
+```cpp
 /**
  * 前序遍历(递归)
- * <li><font color="red">根节点->左子树->右子树</font></li>
- * <li>时间复杂度O(n)</li>
  * @param root 根节点
  * @param res 存储遍历结果
  */
@@ -35,11 +34,13 @@ void preOrder(TreeNode *root, vector<int> &res) {
     preOrder(root->left, res);
     preOrder(root->right, res);
 }
+```
 
+### 中序遍历： 左 - 根 - 右
+
+```cpp
 /**
  * 中序遍历(递归)
- * <li><font color="red">左子树->根节点->右子树</font></li>
- * <li>时间复杂度O(n)</li>
  * @param root 根节点
  * @param res 存储遍历结果
  */
@@ -50,11 +51,13 @@ void inOrder(TreeNode *root, vector<int> &res) {
     res.push_back(root->val);
     inOrder(root->right, res);
 }
+```
 
+### 后序遍历： 左 - 右 - 根
+
+```cpp
 /**
  * 后序遍历(递归)
- * <li><font color="red">左子树->右子树->根节点</font></li>
- * <li>时间复杂度O(n)</li>
  * @param root 根节点
  * @param res 存储遍历结果
  */
@@ -66,12 +69,14 @@ void postOrder(TreeNode *root, vector<int> &res) {
     postOrder(root->right, res);
     res.push_back(root->val);
 }
+```
 
-/**
- * 层次遍历-基于BFS(Breadth-First Search)
- * <li>时间复杂度O(n)
- * <li>空间复杂度O(queue.size())
- */
+### 层次遍历 - 基于 BFS
+
+- 时间复杂度 O(n)
+- 空间复杂度 O(queue.size())
+
+```cpp
 vector<int> levelOrder(TreeNode *root) {
     vector<int> res;
     if (!root)                                  // 树为空，返回空
@@ -89,24 +94,28 @@ vector<int> levelOrder(TreeNode *root) {
     }
     return res;
 }
+```
 
-/**
- * 二叉树的深度-基于递归
- * <li><font color="red">二叉树的最大深度等于其左子树的最大深度和右子树的最大深度的较大值加上1。即max(l,r)+1</font></li>
- * <li>时间复杂度O(n)
- * <li>空间复杂度O(height)
- */
+## 二叉树的深度
+
+- 基于递归
+  - **二叉树的最大深度等于其左子树的最大深度和右子树的最大深度的较大值加上 1。即 max(l,r)+1**
+  - 时间复杂度 O(n)
+  - 空间复杂度 O(height)
+
+```cpp
 int maxDepth(TreeNode *root) {
     if (!root)
         return 0;
     return max(maxDepth(root->left), maxDepth(root->right)) + 1;
 }
+```
 
-/**
- * 二叉树的深度-基于BFS(Breadth-First Search)
- * <li>时间复杂度O(n)
- * <li>空间复杂度O(queue.size())
- */
+- 基于 BFS
+  - 时间复杂度 O(n)
+  - 空间复杂度 O(queue.size())
+
+```cpp
 int maxDepth_2(TreeNode *root) {
     if (!root)
         return 0;
@@ -128,3 +137,4 @@ int maxDepth_2(TreeNode *root) {
     }
     return ans;
 }
+```

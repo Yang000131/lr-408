@@ -6,12 +6,13 @@ import busuanzi from "busuanzi.pure.js";
 import ArticleMetadata from "./component/ArticleMetadata.vue";
 import "./style/index.css";
 import "virtual:group-icons.css";
+import Notice from "./component/Notice.vue";
 
 export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
-      // https://vitepress.dev/guide/extending-default-theme#layout-slots
+      "layout-top": () => h(Notice),
     });
   },
   enhanceApp({ app, router, siteData }) {

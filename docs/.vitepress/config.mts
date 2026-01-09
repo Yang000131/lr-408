@@ -48,7 +48,7 @@ export default defineConfig({
     },
     footer: {
       message: "由一可爱小白兔支持",
-      copyright: "Copyright © 2025-2026 LR-Software.",
+      copyright: `Copyright © 2021-${new Date().getFullYear()} LR-Software.`,
     },
     notFound: {
       title: "页面未找到",

@@ -1,3 +1,10 @@
+---
+author: yang
+firstCommit: 2025-12-18
+version: 1.0.1
+tags: [双指针, 快慢指针]
+---
+
 # 2009 408 真题解答
 
 ## 问题描述

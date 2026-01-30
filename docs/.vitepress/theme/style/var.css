@@ -65,10 +65,25 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
-/** 首页 Feature 鼠标悬停效果 **/
+/** 
+ * 首页 Feature 鼠标悬停效果 
+ * -------------------------------------------------------------------------- */
 .VPFeatures .items .item {
   transition: transform 0.3s;
 }
 .VPFeatures .items .item:hover {
   transform: translateY(-15px);
+}
+
+/**
+ * 增大 Hero 区域与下方内容的间距
+ * -------------------------------------------------------------------------- */
+.VPHero {
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 767px) {
+  .VPHero {
+    margin-bottom: 2rem;
+  }
 }

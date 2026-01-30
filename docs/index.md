@@ -6,31 +6,36 @@ hero:
   text: "408 Learing Doc Site"
   tagline: 🔥 学如逆水行舟，不进则退
   image:
-    src: /it.svg
-    alt: UnoCSS
+    src: /three-leaf-clover.svg
+    alt: Three Leaf Clover
   actions:
     - theme: brand
       text: 开始阅读
-      link: /ds
+      link: /ds/
     - theme: alt
       text: GitHub
-      link: https://github.com/vuejs/vitepress
-
+      link: https://github.com/yang000131/lr-408
+    - theme: alt
+      text: Gitee
+      link: https://gitee.com/yang_311414/lr-408
 features:
-  - icon:  📝
-    title: Fully Customizable
-    details: No core utilities, all functionalities are provided via presets.
-    link: /guide/
-    linkText: Getting Started
-  - icon: <span class="i-carbon-meter-alt"></span>
-    title: Instant
-    details: No parsing, no AST, no scanning. It's 5x faster than Windi CSS or Tailwind CSS JIT.
-  - icon: <span class="i-carbon-wind-gusts"></span>
-    title: Lightweight
-    details: "Zero deps and browser friendly: ~6kb min+brotli"
-  - icon: <span class="i-carbon-ibm-cloud-transit-gateway"></span>
-    title: Rich Integrations
-    details: "First class support of Vite, Webpack, PostCSS, CLI, VS Code, ESLint, etc."
+  - icon: 📑
+    title: 数据结构
+    details: 掌握线性表、树、图等核心结构，夯实算法与程序设计基础。
+    link: /ds/
+    linkText: Read Me
+  - icon: ⚙️
+    title: 计算机组成原理
+    details: 深入 CPU、存储器、指令系统，理解计算机硬件如何执行你的代码。
+    linkText: Learn Now
+  - icon: 🐧
+    title: 操作系统
+    details: 进程调度、内存管理、文件系统——揭开操作系统内核的神秘面纱。
+    link: /os/
+    linkText: It's Wonderful
+  - icon: 📶
+    title: 计算机网络
+    details: 从 HTTP 到 TCP/IP，构建对互联网通信底层原理的完整认知。
     link: /integrations/vite
-    linkText: "Learn more"
+    linkText: "Look it"
 ---

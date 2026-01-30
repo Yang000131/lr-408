@@ -10,9 +10,10 @@ import vitepressProtectPlugin from "vitepress-protect-plugin";
 export default defineConfig({
   title: "LR-408",
   lang: "zh-CN",
+  head: [["link", { rel: "icon", href: "/lr-408.svg" }]],
   description: "LR-408",
   themeConfig: {
-    logo: { src: "./lr-408-logo.svg", width: 24, height: 24 },
+    logo: { src: "./lr-408.svg", width: 24, height: 32, alt: "LR-408" },
     search: {
       provider: "local",
       options: searchOptions,
@@ -66,15 +67,7 @@ export default defineConfig({
   },
   cleanUrls: true,
   vite: {
-    plugins: [
-      MermaidPlugin(),
-      groupIconVitePlugin(),
-      vitepressProtectPlugin({
-        disableF12: true,
-        disableCopy: true,
-        disableSelect: true,
-      }),
-    ],
+    plugins: [MermaidPlugin(), groupIconVitePlugin()],
     optimizeDeps: {
       include: ["mermaid"],
     },

@@ -1,3 +1,9 @@
+---
+author: 一可爱小白兔
+firstCommit: 2025-04-18
+version: 1.0.0
+---
+
 # 二分查找 (Binary Search)
 
 ## 代码实现

@@ -1,3 +1,9 @@
+---
+author: 一可爱小白兔
+firstCommit: 2025-04-18
+version: 1.0.0
+---
+
 # 计数排序 (Count Sort)
 
 ## 算法思想

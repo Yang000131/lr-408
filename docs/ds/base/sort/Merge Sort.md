@@ -1,3 +1,9 @@
+---
+author: 一可爱小白兔
+firstCommit: 2025-04-18
+version: 1.0.0
+---
+
 # 归并排序 (Merge Sort)
 
 ## 算法思想

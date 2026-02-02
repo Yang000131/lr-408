@@ -18,6 +18,7 @@ export default defineConfig({
       provider: "local",
       options: searchOptions,
     },
+    externalLinkIcon: true,
     nav,
     socialLinks: [
       { icon: "github", link: "https://github.com/Yang000131" },

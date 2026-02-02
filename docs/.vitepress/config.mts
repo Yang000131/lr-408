@@ -67,7 +67,15 @@ export default defineConfig({
   },
   cleanUrls: true,
   vite: {
-    plugins: [MermaidPlugin(), groupIconVitePlugin()],
+    plugins: [
+      MermaidPlugin(),
+      groupIconVitePlugin(),
+      vitepressProtectPlugin({
+        disableF12: true,
+        disableCopy: true,
+        disableSelect: true,
+      }),
+    ],
     optimizeDeps: {
       include: ["mermaid"],
     },

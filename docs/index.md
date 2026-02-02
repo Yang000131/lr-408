@@ -27,6 +27,7 @@ features:
   - icon: ⚙️
     title: 计算机组成原理
     details: 深入 CPU、存储器、指令系统，理解计算机硬件如何执行你的代码。
+    link: /co/
     linkText: Learn Now
   - icon: 🐧
     title: 操作系统
@@ -36,6 +37,6 @@ features:
   - icon: 📶
     title: 计算机网络
     details: 从 HTTP 到 TCP/IP，构建对互联网通信底层原理的完整认知。
-    link: /integrations/vite
+    link: /cn/
     linkText: "Look it"
 ---

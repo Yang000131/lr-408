@@ -4,7 +4,14 @@ import {
   groupIconMdPlugin,
   groupIconVitePlugin,
 } from "vitepress-plugin-group-icons";
-import { nav, sidebarDS, sidebarOS, searchOptions } from "./theme/config";
+import {
+  nav,
+  sidebarDS,
+  sidebarCO,
+  sidebarOS,
+  sidebarCN,
+  searchOptions,
+} from "./theme/config";
 import vitepressProtectPlugin from "vitepress-protect-plugin";
 import { vitepressMarkmapPreview } from "vitepress-markmap-preview";
 
@@ -28,7 +35,9 @@ export default defineConfig({
     ],
     sidebar: {
       "/ds/": { base: "/ds/", items: sidebarDS },
+      "/co/": { base: "/co/", items: sidebarCO },
       "/os/": { base: "/os/", items: sidebarOS },
+      "/cn/": { base: "/cn/", items: sidebarCN },
     },
     outline: {
       level: [2, 4],

@@ -4,9 +4,9 @@ firstCommit: 2025-04-18
 version: 1.0.0
 ---
 
-# 图的定义
+# 图的定义 {#graph-define}
 
-## 邻接表结构体
+## 邻接表结构体 {#adjacency-list}
 
 ```cpp
 const int MAX_VERTEX_NUM = 100;
@@ -38,7 +38,7 @@ struct GraphAdjList {
 };
 ```
 
-## 邻接矩阵结构体
+## 邻接矩阵结构体 {#adjacency-matrix}
 
 ```cpp
 struct MGraph {

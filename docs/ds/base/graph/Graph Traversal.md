@@ -4,9 +4,9 @@ firstCommit: 2025-04-18
 version: 1.0.0
 ---
 
-# 图的遍历
+# 图的遍历 {#graph-traversal}
 
-## 图的深度优先遍历
+## 图的深度优先遍历 {#dfs}
 
 ```cpp
 void DFS(MGraph &graph, int startVertex) {
@@ -29,7 +29,7 @@ void DFS(MGraph &graph, int startVertex) {
 }
 ```
 
-## 图的广度优先遍历
+## 图的广度优先遍历 {#bfs}
 
 ```cpp
 void BFS(MGraph &graph, int startVertex) {
@@ -52,15 +52,15 @@ void BFS(MGraph &graph, int startVertex) {
 }
 ```
 
-## BFS、DFS的应用
+## BFS、DFS的应用 {#bfs-dfs-app}
 
-| 应用场景         | 推荐算法 | 原因                       |
-|------------------|----------|----------------------------|
-| 无权图最短路径   | BFS      | 首次访问即最短             |
-| 判断连通性       | DFS/BFS  | DFS 更省空间               |
-| 拓扑排序         | 两者皆可 | Kahn（BFS） vs DFS 后序    |
-| 检测环           | DFS      | 递归栈天然支持             |
-| 回溯/组合/排列   | DFS      | 天然递归结构               |
-| 强连通分量       | DFS      | Tarjan/Kosaraju 基于 DFS   |
-| 层级遍历         | BFS      | 队列天然分层               |
-| 状态空间最少步数 | BFS      | 最短路径保证               |
+| 应用场景         | 推荐算法 | 原因                     |
+| ---------------- | -------- | ------------------------ |
+| 无权图最短路径   | BFS      | 首次访问即最短           |
+| 判断连通性       | DFS/BFS  | DFS 更省空间             |
+| 拓扑排序         | 两者皆可 | Kahn（BFS） vs DFS 后序  |
+| 检测环           | DFS      | 递归栈天然支持           |
+| 回溯/组合/排列   | DFS      | 天然递归结构             |
+| 强连通分量       | DFS      | Tarjan/Kosaraju 基于 DFS |
+| 层级遍历         | BFS      | 队列天然分层             |
+| 状态空间最少步数 | BFS      | 最短路径保证             |

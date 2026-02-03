@@ -7,9 +7,11 @@ import ArticleMetadata from "./component/ArticleMetadata.vue";
 import "./style/index.css";
 import "virtual:group-icons.css";
 import "vitepress-markmap-preview/dist/index.css";
+import "nprogress-v2/dist/index.css";
 import Notice from "./component/Notice.vue";
 import { initComponent } from "vitepress-markmap-preview/component";
 import mediumZoom from "medium-zoom";
+import { NProgress } from "nprogress-v2/dist/index.js";
 
 export default {
   extends: DefaultTheme,
@@ -22,6 +24,14 @@ export default {
     if (inBrowser) {
       router.onAfterRouteChange = () => {
         busuanzi.fetch();
+      };
+      NProgress.configure({ showSpinner: false });
+      router.onBeforeRouteChange = () => {
+        NProgress.start();
+      };
+      router.onAfterRouteChange = () => {
+        busuanzi.fetch();
+        NProgress.done();
       };
     }
     app.component("ArticleMetadata", ArticleMetadata);

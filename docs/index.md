@@ -6,8 +6,8 @@ hero:
   text: "408 Learing Doc Site"
   tagline: 🔥 学如逆水行舟，不进则退
   image:
-    src: /three-leaf-clover.svg
-    alt: Three Leaf Clover
+    src: /code.svg
+    alt: Code
   actions:
     - theme: brand
       text: 开始阅读

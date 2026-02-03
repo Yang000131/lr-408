@@ -13,6 +13,8 @@ import { initComponent } from "vitepress-markmap-preview/component";
 import mediumZoom from "medium-zoom";
 import { NProgress } from "nprogress-v2/dist/index.js";
 
+let homePageStyle: HTMLStyleElement | undefined;
+
 export default {
   extends: DefaultTheme,
   Layout: () => {
@@ -22,9 +24,11 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     if (inBrowser) {
+      // 卜算子统计
       router.onAfterRouteChange = () => {
         busuanzi.fetch();
       };
+      // 进度条
       NProgress.configure({ showSpinner: false });
       router.onBeforeRouteChange = () => {
         NProgress.start();
@@ -34,9 +38,20 @@ export default {
         NProgress.done();
       };
     }
+    // 彩虹色卡
+    if (typeof window !== "undefined") {
+      watch(
+        () => router.route.data.relativePath,
+        () => updateHomePageStyle(location.pathname === "/"),
+        { immediate: true },
+      );
+    }
+    // 文章元数据
     app.component("ArticleMetadata", ArticleMetadata);
+    // MarkMap
     initComponent(app);
   },
+  // 图片放大
   setup() {
     const route = useRoute();
     const initZoom = () => {
@@ -51,3 +66,19 @@ export default {
     );
   },
 } satisfies Theme;
+
+function updateHomePageStyle(value: boolean) {
+  if (value) {
+    if (homePageStyle) return;
+    homePageStyle = document.createElement("style");
+    homePageStyle.innerHTML = `
+    :root {
+      animation: rainbow 12s linear infinite;
+    }`;
+    document.body.appendChild(homePageStyle);
+  } else {
+    if (!homePageStyle) return;
+    homePageStyle.remove();
+    homePageStyle = undefined;
+  }
+}

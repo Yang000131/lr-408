@@ -87,3 +87,14 @@
     margin-bottom: 2rem;
   }
 }
+
+/**
+ * 支持 Doc 图片放大
+ * -------------------------------------------------------------------------- */
+.medium-zoom-overlay {
+  z-index: 30;
+}
+
+.medium-zoom-image {
+  z-index: 9999 !important;
+}

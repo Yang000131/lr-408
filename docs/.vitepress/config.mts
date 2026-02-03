@@ -6,6 +6,7 @@ import {
 } from "vitepress-plugin-group-icons";
 import { nav, sidebarDS, sidebarOS, searchOptions } from "./theme/config";
 import vitepressProtectPlugin from "vitepress-protect-plugin";
+import { vitepressMarkmapPreview } from "vitepress-markmap-preview";
 
 export default defineConfig({
   title: "LR-408",
@@ -102,6 +103,7 @@ export default defineConfig({
         if (tokens[idx].tag === "h1") htmlResult += `<ArticleMetadata />`;
         return htmlResult;
       };
+       vitepressMarkmapPreview(md);
     },
   },
 });

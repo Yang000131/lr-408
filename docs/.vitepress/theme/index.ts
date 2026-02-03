@@ -6,7 +6,9 @@ import busuanzi from "busuanzi.pure.js";
 import ArticleMetadata from "./component/ArticleMetadata.vue";
 import "./style/index.css";
 import "virtual:group-icons.css";
+import "vitepress-markmap-preview/dist/index.css";
 import Notice from "./component/Notice.vue";
+import { initComponent } from "vitepress-markmap-preview/component";
 
 export default {
   extends: DefaultTheme,
@@ -22,5 +24,6 @@ export default {
       };
     }
     app.component("ArticleMetadata", ArticleMetadata);
+    initComponent(app);
   },
 } satisfies Theme;

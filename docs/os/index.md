@@ -1,4 +1,10 @@
-# 大纲、思维导图
+---
+author: 一可爱小白兔
+firstCommit: 2026-01-18
+version: 1.0.0
+---
+
+# 操作系统
 
 ## 考试大纲 {#exam-outline}
 

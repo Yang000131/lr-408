@@ -21,7 +21,7 @@ export default defineConfig({
   head: [["link", { rel: "icon", href: "/lr-408.svg" }]],
   description: "LR-408",
   themeConfig: {
-    logo: { src: "/public/lr-408.svg", width: 24, height: 32, alt: "LR-408" },
+    logo: { src: "/lr-408.svg", width: 24, height: 32, alt: "LR-408" },
     search: {
       provider: "local",
       options: searchOptions,

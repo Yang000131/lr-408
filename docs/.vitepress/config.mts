@@ -30,7 +30,7 @@ export default defineConfig({
     nav,
     socialLinks: [
       { icon: "github", link: "https://github.com/Yang000131" },
-      { icon: "gitee", link: "https://gitee.com/yang_311414/lr-408" },
+      { icon: "gitee", link: "https://gitee.com/yang_311414" },
       { icon: "bilibili", link: "https://space.bilibili.com/516750485" },
     ],
     sidebar: {

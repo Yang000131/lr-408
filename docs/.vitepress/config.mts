@@ -16,6 +16,7 @@ import vitepressProtectPlugin from "vitepress-protect-plugin";
 import { vitepressMarkmapPreview } from "vitepress-markmap-preview";
 
 export default defineConfig({
+  base: "/lr-408/",
   title: "LR-408",
   lang: "zh-CN",
   head: [["link", { rel: "icon", href: "/lr-408.svg" }]],

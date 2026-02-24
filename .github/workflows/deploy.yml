@@ -37,6 +37,11 @@ jobs:
           node-version: 24
           cache: pnpm # 根据你的包管理器改为 pnpm 或 yarn
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 

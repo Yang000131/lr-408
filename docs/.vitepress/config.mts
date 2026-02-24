@@ -19,7 +19,7 @@ export default defineConfig({
   base: "/lr-408/",
   title: "LR-408",
   lang: "zh-CN",
-  head: [["link", { rel: "icon", href: "/lr-408.svg" }]],
+  head: [["link", { rel: "icon", href: "public/lr-408.svg" }]],
   description: "LR-408",
   themeConfig: {
     logo: { src: "/lr-408.svg", width: 24, height: 32, alt: "LR-408" },
@@ -45,8 +45,8 @@ export default defineConfig({
       label: "页面导航",
     },
     editLink: {
-      pattern: "https://gitee.com/yang_311414/lr-408/blob/doc/docs/:path",
-      text: "在Gitee编辑本页",
+      pattern: "https://github.com/Yang000131/lr-408/blob/doc/docs/:path",
+      text: "在Github编辑本页",
     },
     docFooter: {
       prev: "上一页",

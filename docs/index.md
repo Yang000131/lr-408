@@ -13,10 +13,10 @@ hero:
       text: 开始阅读
       link: /ds/
     - theme: alt
-      text: GitHub
+      text: 访问 GitHub
       link: https://github.com/yang000131/lr-408
     - theme: alt
-      text: Gitee
+      text: 访问 Gitee
       link: https://gitee.com/yang_311414/lr-408
 features:
   - icon: 📑

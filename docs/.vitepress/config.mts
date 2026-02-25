@@ -19,7 +19,7 @@ export default defineConfig({
   base: "/lr-408/",
   title: "LR-408",
   lang: "zh-CN",
-  head: [["link", { rel: "icon", href: "public/lr-408.svg" }]],
+  head: [["link", { rel: "icon", href: "/lr-408/favicon.ico" }]],
   description: "LR-408",
   themeConfig: {
     logo: { src: "/lr-408.svg", width: 24, height: 32, alt: "LR-408" },

@@ -10,9 +10,9 @@ version: 1.0.0
 
 ```cpp
 void DFS(MGraph &graph, int startVertex) {
-    vector<bool> visited(graph.vertexNum, false);      // 访问标记
+    vector<bool> visited(graph.vertexNum, false);               // 访问标记
     stack<int> s;                                               // 栈
-    s.push(startVertex);                                     // 入栈
+    s.push(startVertex);                                        // 入栈
     visited[startVertex] = true;                                // 标记访问
     while (!s.empty()) {
         int v = s.top();                                        // 取出栈顶元素
@@ -20,8 +20,8 @@ void DFS(MGraph &graph, int startVertex) {
         cout << graph.vertexes[v] << " ";                       // 访问顶点
         for (int i = graph.vertexNum - 1; i >= 0; --i) {        // 遍历当前顶点的所有邻接顶点(从右向左)
             if (graph.adjacencyMatrix[v][i] && !visited[i]) {   // 如果当前顶点有邻接顶点且未被访问
-                s.push(i);                                    // 入栈
-                visited[i] = true;                               // 标记访问
+                s.push(i);                                      // 入栈
+                visited[i] = true;                              // 标记访问
             }
         }
     }
@@ -33,9 +33,9 @@ void DFS(MGraph &graph, int startVertex) {
 
 ```cpp
 void BFS(MGraph &graph, int startVertex) {
-    vector<bool> visited(graph.vertexNum, false);     // 访问标记
+    vector<bool> visited(graph.vertexNum, false);              // 访问标记
     queue<int> q;                                              // 队列
-    q.push(startVertex);                                    // 入队
+    q.push(startVertex);                                       // 入队
     visited[startVertex] = true;                               // 标记访问
     while (!q.empty()) {
         int v = q.front();                                     // 取出队首元素
@@ -43,7 +43,7 @@ void BFS(MGraph &graph, int startVertex) {
         cout << graph.vertexes[v] << " ";                      // 输出访问的顶点
         for (int i = 0; i < graph.vertexNum; i++) {            // 遍历当前顶点的所有邻接顶点
             if (graph.adjacencyMatrix[v][i] && !visited[i]) {  // 如果当前顶点有邻接顶点且未被访问
-                q.push(i);                                  // 入队
+                q.push(i);                                     // 入队
                 visited[i] = true;                             // 标记访问
             }
         }

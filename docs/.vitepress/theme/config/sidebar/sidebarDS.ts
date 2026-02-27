@@ -30,7 +30,7 @@ export const sidebarDS: DefaultTheme.SidebarItem[] = [
             text: "图",
             items: [
               { text: "图的定义", link: "base/graph/Graph Define" },
-              { text: "图的遍历", link: "base/graph/Graph Traversal" },
+              { text: "图的遍历", link: "base/graph/graph-traversal" },
             ],
           },
           {

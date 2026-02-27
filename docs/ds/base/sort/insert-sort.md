@@ -4,17 +4,17 @@ firstCommit: 2025-04-18
 version: 1.0.0
 ---
 
-# 插入排序 (Insert Sort)
+# 插入排序 (Insert Sort) {#insert-sort}
 
-## 算法思想
-
-todo
-
-## 特征
+## 算法思想 {#idea}
 
 todo
 
-## 代码实现
+## 特征 {#feature}
+
+todo
+
+## 代码实现 {#code}
 
 ```cpp
 void insertSort(vector<int> &nums) {
@@ -30,14 +30,14 @@ void insertSort(vector<int> &nums) {
 }
 ```
 
-## 复杂度、稳定性
+## 复杂度、稳定性 {#complexity}
 
 - 时间复杂度：O(n^2)
 - 空间复杂度：O(1)
 - 稳定性：稳定排序
 - 适用性：顺序表、链表
 
-## 拓展：折半插入排序 (Binary Insert Sort)
+## 拓展：折半插入排序 (Binary Insert Sort) {#binary-insert-sort}
 
 ```cpp
 public:
@@ -52,7 +52,7 @@ public:
     }
 
 
-//折半查找已排序的数组中插入位置 
+//折半查找已排序的数组中插入位置
 private:
     int getInsertPos(vector<int> &nums, int i) {
         int left = 0, right = i - 1;

@@ -4,13 +4,13 @@ firstCommit: 2025-04-18
 version: 1.0.0
 ---
 
-# 计数排序 (Count Sort)
+# 计数排序 (Count Sort) {#count-sort}
 
-## 算法思想
+## 算法思想 {#idea}
 
-**将待排序的数组中的元素值作为计数数组的索引，其个数作为计数数组的元素值，遍历辅助数组排序**  
+将待排序的数组中的元素值作为计数数组的索引，其个数作为计数数组的元素值，遍历辅助数组排序
 
-## 代码实现
+## 代码实现 {#code}
 
 ::: code-group
 
@@ -35,14 +35,14 @@ void countSort(vector<int> &nums) {
 
 :::
 
-## 复杂度、稳定性
+## 复杂度、稳定性 {#complexity}
 
 - 时间复杂度：O(n + k)
 - 空间复杂度：O(k)
 - 稳定性：非比较的稳定排序
 - 适用性：适用于数据范围不大的整数排序问题，尤其是当输入数据集中且分布均匀时效果最佳
 
-### 拓展：标准计数排序
+### 拓展：标准计数排序 {#standard-count-sort}
 
 ::: tip 过程
 
@@ -51,9 +51,9 @@ void countSort(vector<int> &nums) {
 - 对计数数组进行累加，得到每个元素在排序后数组中的位置
 - 创建一个临时数组，从后向前扫描原数组，根据计数数组确定元素位置
 - 将临时数组复制回原数组
-:::
+  :::
 
-``` cpp
+```cpp
 public:
     void countSort(vector<int> &nums) {
         int max_num = INT_MIN, min_num = INT_MAX;

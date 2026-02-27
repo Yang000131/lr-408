@@ -4,17 +4,17 @@ firstCommit: 2025-04-18
 version: 1.0.0
 ---
 
-# 快速排序 (Quick Sort)
+# 快速排序 (Quick Sort) {#quick-sort}
 
-## 算法思想
+## 算法思想 {#idea}
 
 选基准 --> 分区(将所有小于基准的元素移动到基准左边，所有大于等于基准的元素移动到基准右边) --> 递归
 
-## 特征
+## 特征 {#feature}
 
 每轮排序后，基准值被放到最终正确位置
 
-## 代码实现
+## 代码实现 {#code}
 
 ::: code-group
 
@@ -61,8 +61,8 @@ int partition_2(vector<int> &nums, int low, int high) {
 
 :::
 
-## 复杂度、稳定性
+## 复杂度、稳定性 {#complexity}
 
-- 时间复杂度：O(n * log n)
+- 时间复杂度：O(n \* log n)
 - 空间复杂度：O(log n)
 - 稳定性：不稳定

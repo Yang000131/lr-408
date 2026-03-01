@@ -14,6 +14,7 @@ import mediumZoom from "medium-zoom";
 import { NProgress } from "nprogress-v2/dist/index.js";
 
 let homePageStyle: HTMLStyleElement | undefined;
+const baseUrl = "/lr-408/";
 
 export default {
   extends: DefaultTheme,
@@ -42,7 +43,7 @@ export default {
     if (typeof window !== "undefined") {
       watch(
         () => router.route.data.relativePath,
-        () => updateHomePageStyle(location.pathname === "/"),
+        () => updateHomePageStyle(location.pathname === baseUrl),
         { immediate: true },
       );
     }

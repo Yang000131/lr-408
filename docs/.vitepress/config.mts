@@ -95,6 +95,10 @@ export default defineConfig({
   },
   cleanUrls: true,
   vite: {
+    server: {
+      host: "0.0.0.0",
+      strictPort: false,
+    },
     plugins: [
       MermaidPlugin(),
       groupIconVitePlugin(),

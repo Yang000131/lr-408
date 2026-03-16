@@ -4,7 +4,7 @@ firstCommit: 2025-04-18
 version: 1.0.0
 ---
 
-# 排序算法总结 {#sort}
+# 排序算法总结 {#sort-summary}
 
 ## 排序算法 {#sort-algorithm}
 

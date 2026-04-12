@@ -6,13 +6,18 @@ version: 1.0.0
 
 # 二分查找 (Binary Search)
 
+> [!CAUTION] 注意
+> 要求 **有序数组**
+
+## 核心思想
+
 ## 代码实现
 
 ::: code-group
 
-```cpp [非递归.cpp]
+```cpp [迭代.cpp]
 /**
- * 非递归实现
+ * 迭代实现
  * <li>时间复杂度 O(log n)</li>
  * <li>空间复杂度 O(1)</li>
  */
@@ -52,3 +57,5 @@ int binary_search(const vector<int> &nums, int target, int left, int right) {
 ```
 
 :::
+
+## 折半查找判定树

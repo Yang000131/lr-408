@@ -1,0 +1,77 @@
+/* .vitepress/theme/style/marker.css */
+
+/* 记号笔 */
+:root {
+  /* 默认颜色 */
+  --marker-color: rgba(255, 228, 0, 0.4);
+}
+
+.marker-text {
+  text-decoration: underline;
+  border-radius: 5px 5px;
+  text-decoration-thickness: 20px;
+  /* 使用变量 */
+  text-decoration-color: var(--marker-color);
+  text-underline-offset: -16px;
+  text-decoration-skip-ink: none;
+}
+
+/* 闪光笔 */
+.marker-evy {
+  white-space: nowrap;
+  position: relative;
+}
+
+.marker-evy:after {
+  border-radius: 5px 5px;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 66%;
+  left: 0em;
+  right: 0em;
+  bottom: 0;
+  transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+  background-color: var(--marker-color);
+}
+
+.marker-evy:hover:after {
+  top: 0%;
+}
+
+/* 定义不同的颜色类，只需修改变量 */
+.marker-red {
+  --marker-color: rgba(255, 0, 0, 0.4);
+}
+.marker-blue {
+  --marker-color: rgba(0, 100, 255, 0.4);
+}
+.marker-green {
+  --marker-color: rgba(0, 255, 0, 0.4);
+}
+.marker-pink {
+  --marker-color: rgba(255, 105, 180, 0.4);
+}
+
+/* 荧光笔 */
+.marker-text-highlight {
+  border-radius: 5px 5px;
+  background: transparent;
+  color: var(--vp-c-text-soft);
+  background:
+    linear-gradient(
+      104deg,
+      rgba(130, 255, 173, 0) 0.9%,
+      rgba(130, 255, 173, 1.25) 2.4%,
+      rgba(130, 255, 173, 0.5) 5.8%,
+      rgba(130, 255, 173, 0.1) 93%,
+      rgba(130, 255, 173, 0.7) 96%,
+      rgba(130, 255, 1732, 0) 98%
+    ),
+    linear-gradient(
+      183deg,
+      rgba(130, 255, 173, 0) 0%,
+      rgba(130, 255, 173, 0.3) 7.9%,
+      rgba(130, 255, 173, 0) 15%
+    );
+}

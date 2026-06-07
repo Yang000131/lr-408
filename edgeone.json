@@ -1,10 +1,10 @@
 {
   "buildCommand": "pnpm run docs:build",
-  "outputDirectory": "dist",
+  "outputDirectory": "./docs/.vitepress/dist",
   "rewrites": [
     {
       "source": "/lr-408/*",
-      "destination": "*"
+      "destination": "/:splat"
     }
   ]
 }

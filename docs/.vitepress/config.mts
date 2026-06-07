@@ -21,7 +21,6 @@ export default defineConfig({
   lang: "zh-CN",
   head: [["link", { rel: "icon", href: "/lr-408/favicon.ico" }]],
   description: "LR-408",
-  outDir: "../dist",
   themeConfig: {
     logo: { src: "/lr-408.svg", width: 24, height: 32, alt: "LR-408" },
     search: {

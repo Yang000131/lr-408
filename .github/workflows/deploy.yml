@@ -28,20 +28,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-        with:
-          fetch-depth: 0 # 如果未启用 lastUpdated，则不需要此项
 
-      - name: Setup Node
+      - name: Install pnpm
+        run: pnpm/action-setup@v4
+
+      - name: Set node 
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          # cache: pnpm # 根据你的包管理器改为 pnpm 或 yarn
-
-      - name: Install pnpm
-        run: npm install -g pnpm@10
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       - name: Build with VitePress
         run: pnpm run docs:build # 确保 package.json 中有这个脚本

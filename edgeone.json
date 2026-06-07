@@ -1,14 +1,5 @@
 {
   "buildCommand": "pnpm run docs:build",
   "outputDirectory": "./dist",
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/lr-408/index.html"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/lr-408/:path*"
-    }
-  ]
+  "basePath": "/lr-408"
 }

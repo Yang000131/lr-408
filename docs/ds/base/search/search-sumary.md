@@ -7,6 +7,7 @@ version: 1.0.0
 # 查找算法总结
 
 ## 思维导图 {#mind-map}
+
 ```markmap
 - 查找
     - 数组查找
@@ -39,7 +40,7 @@ version: 1.0.0
 
 ## 拓展
 
-### 查找排序数组中第一个等于给定值元素的位置  
+### 查找排序数组中第一个等于给定值元素的位置
 
 ::: code-group
 
@@ -62,8 +63,8 @@ int find_first_target(vector<int> &nums, int target) {
 
 ```cpp [STL实现]
 auto low = lower_bound(nums.begin(), nums.end(), target);
-if(low != nums.end() && *low == target)            
-    return low - nums.begin();   
+if(low != nums.end() && *low == target)
+    return low - nums.begin();
 ```
 
 :::

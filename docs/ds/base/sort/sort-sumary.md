@@ -14,14 +14,15 @@ version: 1.0.0
     - 内部排序
         - [冒泡排序](bubble-sort)
         - [选择排序](select-sort)
-        - [插入排序](insert-sort) 
-        - 希尔排序    
-        - [归并排序](merge-sort) 
+        - [插入排序](insert-sort)
+        - 希尔排序
+        - [归并排序](merge-sort)
         - [快速排序](quick-sort)
         - 堆排序
-        - 基数排序 
+        - 基数排序
   - 外部排序
 ```
+
 ## 基本概念
 
 （一）稳定性

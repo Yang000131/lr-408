@@ -5,6 +5,15 @@ export const sidebarCN: DefaultTheme.SidebarItem[] = [
         text: "计算机网络",
         items: [
             {
+                text: "网络层",
+                items: [
+                    {
+                        text: "IP",
+                        link: "/network_layer/ip"
+                    }
+                ]
+            },
+            {
                 text: "传输层",
                 items: [
                     {
@@ -14,6 +23,15 @@ export const sidebarCN: DefaultTheme.SidebarItem[] = [
                     {
                         text: "UDP",
                         link: "/transport_layer/udp"
+                    }
+                ]
+            },
+            {
+                text: "应用层",
+                items: [
+                    {
+                        text: "HTTP",
+                        link: "/application_layer/http"
                     }
                 ]
             }

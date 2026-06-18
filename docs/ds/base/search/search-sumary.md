@@ -25,7 +25,7 @@ version: 1.0.0
   - 空间复杂度：O(1)
 
 - 实现  
-  [Linear Search](linlinear-search.md#代码实现)
+  [Linear Search](linear-search.md#代码实现)
 
 ## 二分查找（折半查找）
 

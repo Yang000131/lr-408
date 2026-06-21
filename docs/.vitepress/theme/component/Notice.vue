@@ -68,7 +68,7 @@ onMounted(() => {
           详细教程：<a
             href="https://github.com/Yang000131"
             target="_blank"
-            >vitepress.yiov.top</a
+            >www.lr.com</a
           >
         </strong>
       </p>

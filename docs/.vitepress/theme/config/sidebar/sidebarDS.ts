@@ -109,7 +109,7 @@ export const sidebarDS: DefaultTheme.SidebarItem[] = [
       },
       {
         text: "C++ STL",
-        items: [{ text: "无序哈希集合", link: "stl/Unordered Set" }],
+        items: [{ text: "无序哈希集合", link: "stl/unordered-set" }],
       },
       {
         text: "LeetCode",

@@ -66,7 +66,7 @@ onMounted(() => {
       <p class="notice-domain">
         <strong>
           详细教程：<a
-            href="https://vitepress.yiov.top/layout.html#%E5%85%AC%E5%91%8A"
+            href="https://github.com/Yang000131"
             target="_blank"
             >vitepress.yiov.top</a
           >

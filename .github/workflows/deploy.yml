@@ -27,12 +27,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Install pnpm
         uses: pnpm/action-setup@v6
         with:
-          version: 10
+          version: 11
 
       - name: Set node 
         uses: actions/setup-node@v6
@@ -49,7 +49,7 @@ jobs:
         run: pnpm run docs:build # 确保 package.json 中有这个脚本
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: docs/.vitepress/dist # VitePress 默认输出目录
 
@@ -64,4 +64,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
